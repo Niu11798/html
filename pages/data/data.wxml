@@ -1,0 +1,54 @@
+<!-- pages/data/data.wxml -->
+<view class="page-container">
+  <view class="data-section white-bg shadow rounded">
+    <text class="section-title primary-text text-center">吉大数据速览</text>
+
+    <view class="stats-container">
+      <view class="stat-card">
+        <text class="stat-title">在籍学生</text>
+        <text class="stat-value">7.9万</text>
+        <text class="stat-desc">79,173人</text>
+      </view>
+
+      <view class="stat-card">
+        <text class="stat-title">专任教师</text>
+        <text class="stat-value">6,289</text>
+        <text class="stat-desc">含教授2,482人</text>
+      </view>
+
+      <view class="stat-card">
+        <text class="stat-title">两院院士</text>
+        <text class="stat-value">15</text>
+        <text class="stat-desc">含外籍院士3人</text>
+      </view>
+    </view>
+    <text class="stats-note">数据来源：吉林大学官网《吉大简介》《师资队伍》，截至2026年8月31日。</text>
+
+    <text class="map-title">{{campusCount}}大校区分布（长春市）</text>
+    <view class="campus-map" aria-label="长春市六大校区分布示意图">
+      <view class="map-grid"></view>
+      <view class="map-road map-road-vertical"></view>
+      <view class="map-road map-road-horizontal"></view>
+      <text class="map-city-label">长春市区</text>
+      <text class="map-north">↑ 北</text>
+      <button
+        wx:for="{{campusPoints}}"
+        wx:key="id"
+        class="campus-pin {{selectedCampus && selectedCampus.id === item.id ? 'is-selected' : ''}}"
+        style="left: {{item.left}}%; top: {{item.top}}%;"
+        data-id="{{item.id}}"
+        bindtap="onCampusTap"
+      >
+        <text class="campus-pin-dot"></text>
+        <text>{{item.name}}</text>
+      </button>
+    </view>
+    <view class="campus-detail">
+      <block wx:if="{{selectedCampus}}">
+        <text class="campus-detail-name">{{selectedCampus.name}}</text>
+        <text class="campus-detail-address">{{selectedCampus.address}}</text>
+      </block>
+      <text wx:else class="campus-detail-tip">点击图中的校区名称查看地址</text>
+    </view>
+  </view>
+</view>

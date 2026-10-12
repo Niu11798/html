@@ -1,0 +1,10 @@
+<!-- pages/welcome/welcome.wxml -->
+<view class="welcome-page">
+  <view class="welcome-content">
+    <image class="welcome-logo" src="/images/logo.png" mode="widthFix" />
+    <text class="welcome-title">吉林大学100周年倒计时</text>
+    <text class="welcome-motto">求实创新 · 励志图强</text>
+    <text class="welcome-text">欢迎使用，探索吉大的百年征程</text>
+    <button class="enter-btn" bindtap="goToMain">进入应用</button>
+  </view>
+</view>

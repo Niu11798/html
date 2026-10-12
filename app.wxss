@@ -1,0 +1,56 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+}
+
+.page-container {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.blue-bg {
+  background: linear-gradient(to right, #1665ad, #4a90d9);
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rounded {
+  border-radius: 10rpx;
+}
+
+.button {
+  background-color: #1665ad;
+  color: white;
+  border: none;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 10rpx 0;
+}
+
+.button:active {
+  opacity: 0.8;
+}
+
+.primary-text {
+  color: #1665ad;
+}
+
+.text-center {
+  text-align: center;
+}

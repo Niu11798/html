@@ -1,0 +1,73 @@
+<!-- pages/index/index.wxml -->
+<view class="page-container">
+  <view class="page-header">
+    <image class="header-logo" src="/images/logo_dark.png" mode="heightFix" />
+  </view>
+  <view class="countdown-section white-bg shadow rounded">
+    <text class="section-title primary-text">距离吉林大学100周年校庆</text>
+    <view class="countdown-display">
+      <view class="days-display">
+        <text class="days-number">{{days}}</text>
+        <text class="days-label">天</text>
+      </view>
+      <view class="clock-row">
+        <view class="time-block">
+          <view class="time-number">
+            <view class="time-reel {{hoursRolling ? 'is-rolling' : ''}}">
+              <view class="time-reel-face">{{hours}}</view>
+              <view class="time-reel-face">{{hoursPrevious}}</view>
+            </view>
+          </view>
+          <text class="time-label">时</text>
+        </view>
+        <view class="time-block">
+          <view class="time-number">
+            <view class="time-reel {{minutesRolling ? 'is-rolling' : ''}}">
+              <view class="time-reel-face">{{minutes}}</view>
+              <view class="time-reel-face">{{minutesPrevious}}</view>
+            </view>
+          </view>
+          <text class="time-label">分</text>
+        </view>
+        <view class="time-block">
+          <view class="time-number">
+            <view class="time-reel {{secondsRolling ? 'is-rolling' : ''}}">
+              <view class="time-reel-face">{{seconds}}</view>
+              <view class="time-reel-face">{{secondsPrevious}}</view>
+            </view>
+          </view>
+          <text class="time-label">秒</text>
+        </view>
+      </view>
+    </view>
+    <view class="target-date">
+      目标日期：{{targetDate}}
+    </view>
+  </view>
+  
+  <view class="century-progress white-bg shadow rounded">
+    <view class="century-head">
+      <text class="century-title">百年征程</text>
+      <text class="century-percent">{{centuryPercent}}%</text>
+    </view>
+    <view class="progress-track">
+      <view class="progress-fill" style="width: {{centuryPercent}}%;"></view>
+    </view>
+    <view class="century-foot">
+      <text>1946 建校</text>
+      <text>已走过 {{centuryDays}} 天</text>
+      <text>2046 百年</text>
+    </view>
+  </view>
+
+  <view class="welcome-info white-bg shadow rounded">
+    <text>欢迎使用吉林大学百年校庆倒计时</text>
+  </view>
+
+  <view class="official-link white-bg shadow rounded">
+    <text class="official-label">吉林大学官网</text>
+    <text class="official-url">https://www.jlu.edu.cn</text>
+    <button class="button" bindtap="copyOfficialLink">复制官网链接</button>
+    <text class="official-hint">复制后用浏览器打开即可访问</text>
+  </view>
+</view>

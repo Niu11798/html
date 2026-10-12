@@ -1,0 +1,69 @@
+<!-- pages/quiz/quiz.wxml -->
+<view class="page-container">
+  <view class="quiz-section white-bg shadow rounded">
+    <text class="section-title primary-text text-center">校史知识问答</text>
+
+    <!-- 共享身份（与留言板一致） -->
+    <view class="quiz-identity">
+      <image class="quiz-avatar" src="{{user.avatarUrl || '/images/logo.png'}}" mode="aspectFill" />
+      <text class="quiz-user">答题人：{{user.nickname}}</text>
+    </view>
+
+    <!-- 答题中 -->
+    <block wx:if="{{!finished}}">
+      <view class="quiz-progress">
+        <view class="progress-text">
+          <text>第 {{currentQuestionIndex + 1}} / {{total}} 题</text>
+          <text>已答对 {{score}} 题</text>
+        </view>
+        <view class="progress-track">
+          <view class="progress-fill" style="width: {{total ? (currentQuestionIndex + 1) / total * 100 : 0}}%;"></view>
+        </view>
+      </view>
+
+      <view class="question">
+        <text class="question-text">{{quizQuestions[currentQuestionIndex].question}}</text>
+
+        <view class="options">
+          <view
+            wx:for="{{quizQuestions[currentQuestionIndex].options}}"
+            wx:key="*this"
+            class="option {{showResult ? (index === quizQuestions[currentQuestionIndex].correctAnswer ? 'is-correct' : (selectedOption === index ? 'is-wrong' : '')) : (selectedOption === index ? 'selected' : '')}}"
+            bindtap="selectOption"
+            data-index="{{index}}"
+          >
+            {{item}}
+          </view>
+        </view>
+
+        <button
+          class="button {{selectedOption === null || showResult ? 'button-disabled' : ''}}"
+          bindtap="checkAnswer"
+          disabled="{{selectedOption === null || showResult}}"
+        >
+          提交答案
+        </button>
+      </view>
+
+      <view wx:if="{{showResult}}" class="result">
+        <text class="result-text {{isCorrect ? 'correct' : 'incorrect'}}">
+          {{isCorrect ? '回答正确！' : '回答错误！'}}
+        </text>
+        <text class="explanation">{{quizQuestions[currentQuestionIndex].explanation}}</text>
+        <button class="button" bindtap="nextQuestion">
+          {{currentQuestionIndex + 1 >= total ? '查看成绩' : '下一题'}}
+        </button>
+      </view>
+    </block>
+
+    <!-- 已完成：显示总成绩 -->
+    <view wx:else class="result-summary">
+      <text class="summary-title">答题完成！</text>
+      <text class="summary-score">{{score}} / {{total}}</text>
+      <text class="summary-rate">正确率 {{ratePercent}}%</text>
+      <text class="summary-grade">{{gradeText}}</text>
+      <text class="summary-user">答题人：{{user.nickname}}</text>
+      <button class="button" bindtap="restart">再来一次</button>
+    </view>
+  </view>
+</view>

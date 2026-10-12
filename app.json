@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/timeline/timeline",
+    "pages/data/data",
+    "pages/message/message",
+    "pages/quiz/quiz"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1665ad",
+    "navigationBarTitleText": "吉林大学100周年倒计时",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#1665ad",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "倒计时",
+        "iconPath": "images/tab/countdown.png",
+        "selectedIconPath": "images/tab/countdown-active.png"
+      },
+      {
+        "pagePath": "pages/timeline/timeline",
+        "text": "历史事件",
+        "iconPath": "images/tab/timeline.png",
+        "selectedIconPath": "images/tab/timeline-active.png"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "text": "数据统计",
+        "iconPath": "images/tab/data.png",
+        "selectedIconPath": "images/tab/data-active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "留言板",
+        "iconPath": "images/tab/message.png",
+        "selectedIconPath": "images/tab/message-active.png"
+      },
+      {
+        "pagePath": "pages/quiz/quiz",
+        "text": "知识问答",
+        "iconPath": "images/tab/quiz.png",
+        "selectedIconPath": "images/tab/quiz-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

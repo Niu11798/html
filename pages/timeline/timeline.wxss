@@ -1,0 +1,113 @@
+/* pages/timeline/timeline.wxss */
+.timeline-section {
+  padding: 40rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.timeline {
+  position: relative;
+  padding: 24rpx 0 0;
+}
+
+.timeline-group {
+  position: relative;
+  margin-bottom: 24rpx;
+}
+
+.timeline-group.is-expanded::before {
+  content: '';
+  position: absolute;
+  top: 70rpx;
+  bottom: 0;
+  width: 8rpx;
+  background-color: #1665ad;
+  left: 30rpx;
+}
+
+.school-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 88rpx;
+  box-sizing: border-box;
+  padding: 16rpx 20rpx;
+  margin: 0 0 24rpx;
+  background-color: #eaf2fa;
+  border-radius: 12rpx;
+  border-left: 8rpx solid #1665ad;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.school-header::after {
+  border: none;
+}
+
+.school-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1665ad;
+}
+
+.school-meta,
+.school-arrow {
+  flex-shrink: 0;
+  font-size: 22rpx;
+  color: #526b82;
+  margin-left: 12rpx;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60rpx;
+  padding-left: 80rpx;
+}
+
+.timeline-content {
+  padding: 30rpx;
+  background-color: #f8f8f8;
+  border-radius: 20rpx;
+  position: relative;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #1665ad;
+  border-radius: 50%;
+  left: -74rpx;
+  top: 30rpx;
+}
+
+.event-date {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.event-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.event-description {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+}

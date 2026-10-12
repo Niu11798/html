@@ -1,0 +1,35 @@
+<!-- pages/timeline/timeline.wxml -->
+<view class="page-container">
+  <view class="timeline-section white-bg shadow rounded">
+    <text class="section-title primary-text text-center">吉林大学历史沿革</text>
+    <view class="timeline">
+      <view
+        wx:for="{{timelineGroups}}"
+        wx:key="school"
+        wx:for-item="group"
+        wx:for-index="groupIndex"
+        class="timeline-group {{group.expanded ? 'is-expanded' : ''}}"
+      >
+        <button class="school-header" bindtap="toggleGroup" data-index="{{groupIndex}}" aria-label="{{group.school}}，{{group.events.length}}个事件，{{group.expanded ? '点击收起' : '点击展开'}}">
+          <text class="school-name">{{group.school}}</text>
+          <text class="school-meta">{{group.events.length}}个事件</text>
+          <text class="school-arrow">{{group.expanded ? '收起 ▲' : '展开 ▼'}}</text>
+        </button>
+        <block wx:if="{{group.expanded}}">
+          <view
+            wx:for="{{group.events}}"
+            wx:key="id"
+            wx:for-item="item"
+            class="timeline-item"
+          >
+            <view class="timeline-content">
+              <text class="event-date primary-text">{{item.date}}</text>
+              <text class="event-title">{{item.title}}</text>
+              <text class="event-description">{{item.description}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

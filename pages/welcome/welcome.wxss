@@ -1,0 +1,66 @@
+/* pages/welcome/welcome.wxss */
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1665ad, #4a90d9);
+  color: white;
+  text-align: center;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.welcome-content {
+  width: 100%;
+  animation: welcomeIn 0.9s ease-out;
+}
+
+.welcome-logo {
+  width: 72%;
+  display: block;
+  margin: 0 auto 40rpx;
+}
+
+.welcome-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.welcome-motto {
+  font-size: 28rpx;
+  letter-spacing: 8rpx;
+  display: block;
+  margin-bottom: 30rpx;
+  opacity: 0.9;
+}
+
+.welcome-text {
+  font-size: 32rpx;
+  display: block;
+  margin-bottom: 60rpx;
+}
+
+.enter-btn {
+  background-color: white;
+  color: #1665ad;
+  border: none;
+  padding: 30rpx;
+  font-size: 32rpx;
+  border-radius: 60rpx;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@keyframes welcomeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

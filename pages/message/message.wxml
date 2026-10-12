@@ -1,0 +1,58 @@
+<!-- pages/message/message.wxml -->
+<view class="page-container">
+  <view class="message-board white-bg shadow rounded">
+    <text class="section-title primary-text text-center">祝福吉大留言板</text>
+
+    <!-- 身份设置：区分留言者 -->
+    <view class="identity-card">
+      <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{user.avatarUrl || '/images/logo.png'}}" mode="aspectFill" />
+        <text class="avatar-tip">换头像</text>
+      </button>
+      <view class="identity-right">
+        <text class="identity-label">我的昵称</text>
+        <input
+          class="nickname-input"
+          type="text"
+          value="{{user.nickname}}"
+          bindblur="onNicknameBlur"
+          placeholder="点击填写你的昵称"
+        />
+      </view>
+    </view>
+
+    <view class="message-form">
+      <textarea
+        value="{{newMessage}}"
+        bindinput="onMessageInput"
+        placeholder="写下您对吉林大学的祝福..."
+        maxlength="200"
+      />
+      <button class="button" bindtap="addMessage">发表留言</button>
+    </view>
+
+    <view class="messages-list">
+      <view
+        wx:for="{{messages}}"
+        wx:key="id"
+        class="message-item"
+      >
+        <view class="message-header">
+          <view class="message-user-info">
+            <image class="message-avatar" src="{{item.avatarUrl || '/images/logo.png'}}" mode="aspectFill" />
+            <text class="message-user">{{item.user}}</text>
+          </view>
+          <text class="message-time">{{item.time}}</text>
+        </view>
+        <view class="message-content">{{item.content}}</view>
+        <view class="message-actions">
+          <view class="like-btn {{item.liked ? 'active' : ''}}" bindtap="toggleLike" data-id="{{item.id}}">
+            <text class="like-icon">{{item.liked ? '♥' : '♡'}}</text>
+            <text class="like-count">{{item.likes}}</text>
+          </view>
+          <view class="delete-btn" bindtap="deleteMessage" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
